@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Invitacion digital de boda de Nico y Carly">
+  <title>Nico & Carly | Invitacion</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero section reveal">
+      <div class="hero-media-frame">
+        <!-- Reemplaza solo este src para usar otra foto local -->
+        <img
+          class="hero-media"
+          src="assets/hero-photo.svg"
+          alt="Nico y Carly abrazados al atardecer"
+          onerror="this.onerror=null;this.src='assets/hero-photo.svg';"
+        >
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Nuestra boda</p>
+        <h1>Nico &amp; Carly</h1>
+        <p class="hero-subtitle">Hay momentos que sueñan de a dos, y este es uno de ellos.</p>
+        <p class="hero-date">3 de julio · Montevideo</p>
+        <a class="button button-primary" href="#bienvenida">Descubrir la invitación</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="bienvenida" class="section intro reveal">
+        <div class="section-heading">
+          <p class="section-kicker">Bienvenidos</p>
+          <h2>Queremos celebrar este día con las personas que más queremos</h2>
+        </div>
+        <p class="intro-message">
+          Después de recorrer tantos momentos juntos, llegó el día de decirnos que sí. Nos hace muy felices invitarlos a ser parte de una celebración que imaginamos con mucho amor, emoción y ganas de compartirla con ustedes.
+        </p>
+      </section>
+
+      <section class="section details reveal" id="detalles">
+        <div class="section-heading">
+          <p class="section-kicker">Detalles del evento</p>
+          <h2>Una jornada para disfrutar cada momento</h2>
+        </div>
+        <div class="details-grid">
+          <article class="detail-card detail-card-ceremony">
+            <div class="detail-card-header">
+              <div class="detail-icon" aria-hidden="true">&#10022;</div>
+              <p class="detail-label">Ceremonia</p>
+            </div>
+            <h3>Un mismo lugar para decir que si</h3>
+            <p class="detail-summary">Vamos a compartir uno de los momentos mas importantes de nuestra historia en un lugar muy especial, y nos encantaria que nos acompanen.</p>
+            <dl>
+              <div>
+                <dt>Fecha</dt>
+                <dd>Viernes 3 de Julio</dd>
+              </div>
+              <div>
+                <dt>Ceremonia</dt>
+                <dd>20 hs</dd>
+              </div>
+              <div>
+                <dt>Lugar</dt>
+                <dd>Salon Budapest</dd>
+              </div>
+              <div>
+                <dt>Direccion</dt>
+                <dd>Av. Gral. Jose Garibaldi 2630, Montevideo</dd>
+              </div>
+            </dl>
+            <a class="button button-secondary" href="https://maps.google.com/?q=Av.+Gral.+Jose+Garibaldi+2630,+Montevideo" target="_blank" rel="noreferrer">Abrir en Google Maps</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section rsvp reveal" id="rsvp">
+        <div class="section-heading">
+          <p class="section-kicker">RSVP</p>
+          <h2>Nos encantaría saber si van a acompañarnos</h2>
+        </div>
+        <div class="rsvp-layout">
+          <div class="rsvp-copy">
+            <p>
+              Para organizarnos mejor, les pedimos que nos confirmen su asistencia. Si vienen, tambien pueden indicarnos cuantas personas asistiran y sus nombres.
+            </p>
+            <p class="rsvp-note">
+              La confirmacion se guarda en este dispositivo hasta que conectemos el formulario a un sistema externo.
+            </p>
+          </div>
+
+          <form class="rsvp-form" id="rsvp-form">
+            <label class="field">
+              <span>Nombre del invitado o grupo</span>
+              <input type="text" name="groupName" placeholder="Ej. Familia Pérez" required>
+            </label>
+
+            <fieldset class="field">
+              <legend>¿Asistirán?</legend>
+              <div class="choice-group">
+                <label class="choice-pill">
+                  <input type="radio" name="attendance" value="si" required>
+                  <span>Sí, ahí estaremos</span>
+                </label>
+                <label class="choice-pill">
+                  <input type="radio" name="attendance" value="no">
+                  <span>No podremos asistir</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="attendance-message" id="attendance-message" aria-live="polite"></div>
+
+            <div class="attendance-extra hidden" id="attendance-extra">
+              <label class="field">
+                <span>Cantidad de personas que asistirán</span>
+                <input type="number" id="guest-count" name="guestCount" min="1" max="12" value="1">
+              </label>
+
+              <div class="generated-fields" id="generated-fields"></div>
+            </div>
+
+            <button class="button button-primary button-full" type="submit">Guardar confirmacion</button>
+            <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section gifts reveal" id="regalos">
+        <div class="section-heading">
+          <p class="section-kicker">Regalos</p>
+          <h2>Su compañía es el mejor regalo</h2>
+        </div>
+        <p class="gifts-copy">
+          Su presencia en este día es lo más importante para nosotros. Si además desean hacernos un regalo, pueden hacerlo de la siguiente manera:
+        </p>
+        <div class="gift-card">
+          <dl class="gift-list">
+            <div>
+              <dt>BBVA: Cuenta corriente USD & $uy</dt>
+              <dd>23463236</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer reveal">
+      <p>Con mucho amor, Nico &amp; Carly</p>
+      <span>03.07.2026</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico</title>
+</head>
+<body>
+  <pre id="out">{
+  "bodyScrollHeight": 4381,
+  "bodyClientHeight": 4381,
+  "htmlScrollHeight": 4381,
+  "htmlClientHeight": 932,
+  "regalosTop": 3541,
+  "regalosHeight": 644,
+  "giftCardTop": 3820,
+  "giftCardHeight": 337,
+  "footerTop": 4201,
+  "footerHeight": 115
+}</pre>
+  <iframe id="frame" src="index.html" style="width:430px;height:932px;border:1px solid #999;"></iframe>
+
+  <script>
+    const frame = document.getElementById('frame');
+    const out = document.getElementById('out');
+
+    frame.addEventListener('load', () => {
+      const doc = frame.contentDocument;
+      const body = doc.body;
+      const html = doc.documentElement;
+      const regalos = doc.getElementById('regalos');
+      const giftCard = doc.querySelector('.gift-card');
+      const footer = doc.querySelector('.footer');
+
+      const data = {
+        bodyScrollHeight: body.scrollHeight,
+        bodyClientHeight: body.clientHeight,
+        htmlScrollHeight: html.scrollHeight,
+        htmlClientHeight: html.clientHeight,
+        regalosTop: regalos ? regalos.offsetTop : null,
+        regalosHeight: regalos ? regalos.offsetHeight : null,
+        giftCardTop: giftCard ? giftCard.offsetTop : null,
+        giftCardHeight: giftCard ? giftCard.offsetHeight : null,
+        footerTop: footer ? footer.offsetTop : null,
+        footerHeight: footer ? footer.offsetHeight : null
+      };
+
+      out.textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+
+
+</body></html>

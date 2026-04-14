@@ -1,0 +1,29 @@
+<svg width="1600" height="2000" viewBox="0 0 1600 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="2000" fill="#F5F0E8"/>
+  <rect x="72" y="72" width="1456" height="1856" rx="48" fill="url(#paint0_linear_101_2)"/>
+  <path d="M0 1578C212.464 1410.08 371.644 1326.11 608 1342C844.356 1357.89 976.651 1587.35 1221 1606C1404.26 1619.99 1530.59 1532.58 1600 1466V2000H0V1578Z" fill="#E8DECF"/>
+  <circle cx="1120" cy="536" r="244" fill="#E4D3BF"/>
+  <circle cx="1120" cy="536" r="212" fill="#EFE6D9"/>
+  <path d="M319 1215C319 995.236 497.236 817 717 817H815C1034.76 817 1213 995.236 1213 1215V1530H319V1215Z" fill="#DDD1BF"/>
+  <path d="M516 973C516 850.682 615.682 751 738 751C860.318 751 960 850.682 960 973V1096H516V973Z" fill="#F3ECE2"/>
+  <path d="M914 1020C932.667 998.667 977.8 965.2 1009 980C1048 998.5 1073.5 1055.5 1056.5 1086C1042.9 1110.4 998.833 1113.17 978.5 1111L914 1020Z" fill="#C6AE87"/>
+  <path d="M613 1054C601.667 1012.33 616.6 919.9 705 899.5C793.4 879.1 891.833 954.333 930 994.5L875.5 1146.5H651.5L613 1054Z" fill="#2F2A27"/>
+  <path d="M704.5 1001.5C739.5 970.7 795.5 957.667 819 958L864.5 998L799 1082L704.5 1001.5Z" fill="#241F1C"/>
+  <path d="M718.5 1108.5C710.9 1072.9 735.333 1004 749 975L840.5 989.5C834 1016.67 813.6 1076.3 784 1120.5C754.4 1164.7 728.667 1138.92 718.5 1108.5Z" fill="#EDDFC9"/>
+  <path d="M606.5 1130C558.9 1156.8 481 1226 501 1332L507.5 1530H829C789 1470 689.1 1313.1 610.5 1167.5L606.5 1130Z" fill="#FFF9F1"/>
+  <path d="M831 1139.5C905 1115 1037.8 1116.4 1080 1299L1070.5 1530H736C747.333 1484.33 782.9 1365.4 834.5 1254.5C886.1 1143.6 857.667 1130.62 831 1139.5Z" fill="#F8F1E8"/>
+  <path d="M442 348C528 279.333 718.7 167.2 928.5 268C1138.3 368.8 1139.92 625 1118 744.5C1080.67 695.667 970.9 596.4 830.5 589.999C690.1 583.599 516.667 684.333 447.5 737.5C430.167 653 404.4 416.667 442 348Z" fill="#D0B58D"/>
+  <path d="M327 1695C482.833 1624.17 822.4 1542 1193.5 1760" stroke="#B9996E" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 18"/>
+  <text x="800" y="1740" text-anchor="middle" fill="#6F6254" font-family="Georgia, serif" font-size="58" letter-spacing="14">
+    NICO &amp; CARLY
+  </text>
+  <text x="800" y="1818" text-anchor="middle" fill="#8A7A67" font-family="Arial, sans-serif" font-size="24" letter-spacing="8">
+    Reemplaza esta imagen por su foto real
+  </text>
+  <defs>
+    <linearGradient id="paint0_linear_101_2" x1="800" y1="72" x2="800" y2="1928" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4EDE3"/>
+      <stop offset="1" stop-color="#FBF8F2"/>
+    </linearGradient>
+  </defs>
+</svg>
