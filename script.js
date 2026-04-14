@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyjIVbvMFGfsQiAZLStyMJ6mFEcZHuaSDI58DBmAfHg7Uouz3u2JuJA6gAhIAuTniLg6Q/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0HmPuZVPl1ybRxJt32slupw4LwC4D_K27hVjWFZgi79NAbTxdX1Fi9M1Ed2bbQPUP/exec";
 
 const attendanceInputs = document.querySelectorAll('input[name="attendance"]');
 const attendanceExtra = document.getElementById('attendance-extra');
@@ -130,23 +130,46 @@ async function submitRsvp(payload) {
     throw new Error('missing-endpoint');
   }
 
-  const response = await fetch(APPS_SCRIPT_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
+  const formBody = new URLSearchParams({
+    groupName: payload.groupName,
+    attendance: payload.attendance,
+    guestCount: String(payload.guestCount),
+    guestNames: payload.guestNames.join(', '),
   });
 
+  console.log('[RSVP] Enviando confirmacion a Apps Script', {
+    url: APPS_SCRIPT_URL,
+    groupName: payload.groupName,
+    attendance: payload.attendance,
+    guestCount: payload.guestCount,
+    guestNames: payload.guestNames,
+  });
+
+  const response = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    body: formBody,
+  });
+
+  const responseText = await response.text();
   let responseData = null;
 
   try {
-    responseData = await response.json();
+    responseData = responseText ? JSON.parse(responseText) : null;
   } catch {
     responseData = null;
   }
 
-  if (!response.ok || !responseData || responseData.status !== 'ok') {
+  console.log('[RSVP] Respuesta recibida', {
+    ok: response.ok,
+    status: response.status,
+    body: responseText,
+  });
+
+  if (!response.ok) {
+    throw new Error('request-failed');
+  }
+
+  if (responseData && responseData.status && responseData.status !== 'ok') {
     throw new Error('request-failed');
   }
 }
@@ -212,7 +235,8 @@ form.addEventListener('submit', async (event) => {
     );
 
     resetRsvpForm();
-  } catch {
+  } catch (error) {
+    console.error('[RSVP] Error al enviar confirmacion', error);
     setMessageState(
       formFeedback,
       'not-attending',

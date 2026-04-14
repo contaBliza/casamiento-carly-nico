@@ -10,15 +10,21 @@ function doGet() {
 
 function doPost(e) {
   try {
-    if (!e || !e.postData || !e.postData.contents) {
-      throw new Error("No se recibieron datos en el body.");
+    if (!e || !e.parameter) {
+      throw new Error("No se recibieron parametros en la solicitud.");
     }
 
-    var data = JSON.parse(e.postData.contents);
-    var groupName = String(data.groupName || "").trim();
-    var attendance = data.attendance;
-    var guestCount = Number(data.guestCount || 0);
-    var guestNames = Array.isArray(data.guestNames) ? data.guestNames : [];
+    var groupName = String(e.parameter.groupName || "").trim();
+    var attendance = String(e.parameter.attendance || "").trim();
+    var guestCount = Number(e.parameter.guestCount || 0);
+    var guestNames = String(e.parameter.guestNames || "").trim();
+
+    Logger.log("RSVP recibido: %s", JSON.stringify({
+      groupName: groupName,
+      attendance: attendance,
+      guestCount: guestCount,
+      guestNames: guestNames
+    }));
 
     if (!groupName) {
       throw new Error("groupName es obligatorio.");
@@ -33,14 +39,12 @@ function doPost(e) {
         throw new Error("guestCount debe ser mayor o igual a 1.");
       }
 
-      if (guestNames.length !== guestCount || guestNames.some(function(name) {
-        return !String(name || "").trim();
-      })) {
+      if (!guestNames) {
         throw new Error("Todos los guestNames son obligatorios.");
       }
     } else {
       guestCount = 0;
-      guestNames = [];
+      guestNames = "";
     }
 
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -49,11 +53,15 @@ function doPost(e) {
       groupName,
       attendance,
       guestCount,
-      guestNames.join(", ")
+      guestNames
     ]);
 
-    return jsonResponse({ status: "ok" });
+    return jsonResponse({
+      status: "ok",
+      message: "RSVP guardado correctamente."
+    });
   } catch (error) {
+    Logger.log("Error en doPost: %s", error && error.stack ? error.stack : error);
     return jsonResponse({
       status: "error",
       message: error.message
